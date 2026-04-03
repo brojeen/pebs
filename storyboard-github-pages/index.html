@@ -1073,19 +1073,22 @@ body { background:var(--bg); color:var(--text); font-family:'Noto Sans KR',sans-
 .shooting-nav a .dur {
   font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--text-dim); margin-left:4px;
 }
-.view-mode .header-right { display:none; }
-.view-mode .ep-actions { display:none; }
-.view-mode .img-overlay { display:none; }
-.view-mode .scene-actions-bar { display:none; }
-.view-mode .char-add-btn { display:none; }
-.view-mode .toolbar { display:none; }
-.view-mode [contenteditable] { cursor:default; }
-.view-mode [contenteditable]:hover { border-bottom-color:transparent; }
-.view-mode [contenteditable]:focus { border-bottom-color:transparent; color:inherit; }
-.view-mode .scene-img { cursor:default; }
-.view-mode .scene-img .placeholder { cursor:default; border-style:solid; }
-.view-mode .nav a { cursor:pointer; }
-.view-mode .nav a.no-drag { display:none; }
+.readonly-mode .header-right .btn { display:none; }
+.readonly-mode .header-right .view-modes { display:flex; }
+.readonly-mode .ep-actions { display:none; }
+.readonly-mode .img-overlay { display:none; }
+.readonly-mode .scene-actions-bar { display:none; }
+.readonly-mode .char-add-btn { display:none; }
+.readonly-mode .toolbar { display:none; }
+.readonly-mode [contenteditable] { cursor:default; }
+.readonly-mode [contenteditable]:hover { border-bottom-color:transparent; }
+.readonly-mode [contenteditable]:focus { border-bottom-color:transparent; color:inherit; }
+.readonly-mode .scene-img { cursor:default; }
+.readonly-mode .scene-img .placeholder { cursor:default; border-style:solid; }
+.readonly-mode .nav a { cursor:pointer; }
+.readonly-mode .nav a.no-drag { display:none; }
+.readonly-mode .shoot-loc-drag-handle { display:none; }
+.readonly-mode .shoot-day-body .btn { display:none; }
 </style>
 </head>
 <body>
@@ -3968,7 +3971,7 @@ document.addEventListener('keydown', function(e) {
 
 // Init
 const isViewMode = new URLSearchParams(window.location.search).has('view');
-if(isViewMode) document.body.classList.add('view-mode');
+if(isViewMode) document.body.classList.add('readonly-mode');
 
 (async function init() {
   try {
